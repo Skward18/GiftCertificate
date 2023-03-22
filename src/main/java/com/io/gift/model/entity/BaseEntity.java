@@ -9,13 +9,14 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import java.time.LocalDateTime;
 
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class BaseEntity extends AbstractPersistable<Long> {
+public abstract class BaseEntity extends AbstractPersistable<Long> {
 
     private LocalDateTime createDate;
-    private LocalDateTime  lastUpdateDate;
+    private LocalDateTime lastUpdateDate;
 
 }

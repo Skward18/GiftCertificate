@@ -1,11 +1,11 @@
 package com.io.gift.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.io.gift.model.entity.GiftCertificate;
-import com.io.gift.model.entity.Tag;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * A DTO for the {@link GiftCertificate} entity
@@ -15,8 +15,7 @@ public record GiftCertificateDto(Long id,
                                  String description,
                                  Long price,
                                  Integer duration,
-                                 LocalDateTime createDate,
-                                 LocalDateTime lastUpdateDate,
-                                 LocalDateTime expiresAt,
-                                 List<Tag> tagList) implements Serializable {
+                                 @JsonIgnore LocalDateTime createDate,
+                                 @JsonIgnore LocalDateTime lastUpdateDate,
+                                 @JsonIgnore LocalDateTime expiresAt) implements Serializable {
 }

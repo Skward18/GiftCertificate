@@ -27,7 +27,7 @@ public class TagServiceImpl implements TagService {
         log.info("Saving tags... ");
         List<Tag> tags = tagRepository.saveAll(tagCreateRequest.getTags().stream().map(tagName -> {
             Tag tag = new Tag();
-            tag.setName(tagName);
+            tag.setName(tagName.toString());
             return tag;
         }).toList());
         return tagMapper.toDtoList(tags);
@@ -35,7 +35,7 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public TagDto getOne(Long id) {
-        log.info("success");
+        log.info("Searching for certificate by id = {}", id);
         return tagMapper.toDto(tagRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new));
     }

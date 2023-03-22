@@ -8,5 +8,5 @@ import java.util.List;
 /**
  * A DTO for the {@link Tag} entity
  */
-public record TagDto(Long id, List<Tag> tag, String name) implements Serializable {
+public record TagDto(Long id, String name) implements Serializable {
 }

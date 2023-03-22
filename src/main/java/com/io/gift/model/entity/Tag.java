@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.ManyToAny;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import java.util.List;
@@ -15,9 +16,10 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @Table(name = "tb_tags")
-public class Tag extends AbstractPersistable<Long> {
+public class Tag extends AbstractPersistable<Long>  {
 
     @Column(unique = true, nullable = false)
+    @JoinColumn(name = "tag_id", referencedColumnName = "id")
     private String name;
 
     @Override

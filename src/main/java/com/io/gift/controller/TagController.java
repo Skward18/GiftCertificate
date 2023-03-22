@@ -23,7 +23,7 @@ public class TagController {
     }
 
     @GetMapping("/{id}")
-    private ResponseEntity<TagDto> getOne(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.FOUND).body(tagService.getOne(id));
+    private TagDto getOne(@PathVariable Long id){
+        return tagService.getOne(id);
     }
 }

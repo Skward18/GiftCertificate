@@ -28,10 +28,10 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
     public GiftCertificateDto create(GiftCertificateCreateRequest request) {
         log.info("Saving gift certificate... ");
         GiftCertificate giftCertificate = giftCertificateCreateMapper.toEntity(request);
-        giftCertificate.setDuration(request.getDuration());
+        giftCertificate.setDuration(10);
         giftCertificate.setCreateDate(LocalDateTime.now());
         giftCertificate.setLastUpdateDate(LocalDateTime.now());
-        giftCertificate.setExpiresAt(LocalDateTime.now().plusDays(request.getDuration()));
+        giftCertificate.setExpiresAt(LocalDateTime.now().plusDays(giftCertificate.getDuration()));
         giftCertificateRepository.save(giftCertificate);
         return giftCertificateMapper.toDto(giftCertificate);
     }
@@ -43,5 +43,4 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
                 .orElseThrow(EntityNotFoundException::new));
     }
 
-    // TODO: 15.03.2023 create request in method create: name, description, price.
 }

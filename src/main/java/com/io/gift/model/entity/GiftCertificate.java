@@ -1,13 +1,11 @@
 package com.io.gift.model.entity;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -26,6 +24,7 @@ public class GiftCertificate extends BaseEntity {
     private Long price;
     @Column(nullable = false)
     private Integer duration;
+    @Column(nullable = false)
     private LocalDateTime expiresAt;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "gift_certificate_id", referencedColumnName = "id")
