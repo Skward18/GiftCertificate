@@ -12,6 +12,6 @@ import java.util.List;
 public interface TagMapper {
 
     TagDto toDto(Tag tag);
-
     List<TagDto> toDtoList(List<Tag> tag);
+    List<Tag> toEntityList(List<TagDto> dtoList);
 }

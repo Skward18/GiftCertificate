@@ -14,7 +14,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_tags")
-public class Tag extends AbstractPersistable<Long> {
+public class Tag extends BaseEntity<Long> {
 
     @Column(unique = true, nullable = false)
     private String name;
@@ -29,6 +29,6 @@ public class Tag extends AbstractPersistable<Long> {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hashCode(this);
     }
 }

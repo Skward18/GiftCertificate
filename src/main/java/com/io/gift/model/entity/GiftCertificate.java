@@ -14,7 +14,7 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @Table(name = "tb_gift_certificates")
-public class GiftCertificate extends BaseEntity {
+public class GiftCertificate extends BaseEntityAudit<Long> {
 
     @Column(unique = true, nullable = false)
     private String name;
