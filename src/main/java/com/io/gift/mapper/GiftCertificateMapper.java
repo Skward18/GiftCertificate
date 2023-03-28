@@ -9,7 +9,5 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = ComponentModel.SPRING, unmappedTargetPolicy = ReportingPolicy.WARN)
 public interface GiftCertificateMapper {
 
-    GiftCertificate toEntity(GiftCertificateDto giftCertificateDto);
-
     GiftCertificateDto toDto(GiftCertificate giftCertificate);
 }

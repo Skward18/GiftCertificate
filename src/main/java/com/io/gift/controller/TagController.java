@@ -22,8 +22,8 @@ public class TagController {
         return ResponseEntity.status(HttpStatus.CREATED).body(tagService.create(tagCreateRequest));
     }
 
-    @GetMapping("/{id}")
-    private TagDto getOne(@PathVariable Long id){
-        return tagService.getOne(id);
+    @GetMapping
+    private List<TagDto> getAll(){
+        return tagService.getAll();
     }
 }

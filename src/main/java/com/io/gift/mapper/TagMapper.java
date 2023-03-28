@@ -10,6 +10,7 @@ import java.util.List;
 
 @Mapper(componentModel = ComponentModel.SPRING, unmappedTargetPolicy = ReportingPolicy.WARN)
 public interface TagMapper {
+
     TagDto toDto(Tag tag);
 
     List<TagDto> toDtoList(List<Tag> tag);

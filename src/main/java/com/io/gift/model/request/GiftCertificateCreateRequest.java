@@ -9,9 +9,13 @@ import java.util.List;
 public class GiftCertificateCreateRequest {
 
     private String name;
+
     private String description;
+
     private Long price;
-    
-    private List<Tag> tag;
+
+    private Integer durationInDays;
+
+    private TagCreateRequest tagCreateRequest;
 
 }

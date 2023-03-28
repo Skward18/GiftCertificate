@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -18,20 +18,20 @@ public class GiftCertificate extends BaseEntity {
 
     @Column(unique = true, nullable = false)
     private String name;
-    @Column(nullable = false)
+
     private String description;
+
     @Column(nullable = false)
     private Long price;
-    @Column(nullable = false)
-    private Integer duration;
+
     @Column(nullable = false)
     private LocalDateTime expiresAt;
+
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "gift_certificate_id", referencedColumnName = "id")
-    private List<Tag> tag;
-
-    // TODO: 15.03.2023 manytomany tag list, no cascade
-
+    @JoinTable(name = "certificate_has_tag",
+            joinColumns = @JoinColumn(name = "certificate_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
+    private List<Tag> tags;
 
     @Override
     public boolean equals(Object o) {

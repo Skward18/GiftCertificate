@@ -6,7 +6,6 @@ import com.io.gift.model.entity.Tag;
 import com.io.gift.model.request.TagCreateRequest;
 import com.io.gift.repository.TagRepository;
 import com.io.gift.service.TagService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -34,9 +33,8 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public TagDto getOne(Long id) {
-        log.info("Searching for certificate by id = {}", id);
-        return tagMapper.toDto(tagRepository.findById(id)
-                .orElseThrow(EntityNotFoundException::new));
+    public List<TagDto> getAll() {
+        log.info("Getting all");
+        return tagMapper.toDtoList(tagRepository.findAll());
     }
 }

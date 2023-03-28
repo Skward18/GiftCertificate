@@ -8,5 +8,5 @@ import java.util.List;
 public interface TagService {
 
     List<TagDto> create(TagCreateRequest tagCreateRequest);
-    TagDto getOne(Long id);
+    List<TagDto> getAll();
 }

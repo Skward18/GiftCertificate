@@ -1,6 +1,5 @@
 package com.io.gift.mapper;
 
-import com.io.gift.model.dto.GiftCertificateDto;
 import com.io.gift.model.entity.GiftCertificate;
 import com.io.gift.model.request.GiftCertificateCreateRequest;
 import org.mapstruct.Mapper;
@@ -13,7 +12,8 @@ public interface GiftCertificateCreateMapper {
 
     @Mapping(target = "createDate", ignore = true)
     @Mapping(target = "lastUpdateDate", ignore = true)
-    @Mapping(target = "duration", ignore = true)
+    @Mapping(target = "expiresAt", ignore = true)
+    @Mapping(target = "tags", ignore = true)
     @Mapping(target = "id", ignore = true)
     GiftCertificate toEntity(GiftCertificateCreateRequest request);
 }

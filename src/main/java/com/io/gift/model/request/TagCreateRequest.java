@@ -7,4 +7,5 @@ import java.util.List;
 @Data
 public class TagCreateRequest {
     private List<String> tags;
+
 }
