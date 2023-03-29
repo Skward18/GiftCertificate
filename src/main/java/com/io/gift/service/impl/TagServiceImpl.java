@@ -1,6 +1,6 @@
 package com.io.gift.service.impl;
 
-import com.io.gift.mapper.TagMapper;
+import com.io.gift.mapper.dto.TagMapper;
 import com.io.gift.model.dto.TagDto;
 import com.io.gift.model.entity.Tag;
 import com.io.gift.model.request.RequestedTagStatus;

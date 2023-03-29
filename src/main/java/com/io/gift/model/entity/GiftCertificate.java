@@ -8,6 +8,7 @@ import org.hibernate.Hibernate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.BinaryOperator;
 
 @Entity
 @Getter
@@ -32,6 +33,14 @@ public class GiftCertificate extends BaseEntityAudit<Long> {
             joinColumns = @JoinColumn(name = "certificate_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
     private List<Tag> tags;
+
+    @Column(nullable = false)
+    Boolean isEnabled;
+
+    @PrePersist
+    private void onCreate(){
+        isEnabled = true;
+    }
 
     @Override
     public boolean equals(Object o) {
