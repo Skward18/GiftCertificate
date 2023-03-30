@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface TagRepository extends JpaRepository<Tag, Long> {
 
-    boolean existsByName(String name);
+    Boolean existsByName(String name);
 
     List<Tag> findAllByNameIn(List<String> name);
 }

@@ -48,4 +48,14 @@ public class TagServiceImpl implements TagService {
         log.info("Getting all");
         return tagMapper.toDtoList(tagRepository.findAll());
     }
+
+    @Override
+    public TagDto deleteOne(Long id) {
+        return null;
+    }
+
+    @Override
+    public TagDto deleteOne(String name) {
+        return null;
+    }
 }

@@ -4,7 +4,8 @@ import com.io.gift.exception.GiftCertificateIsNotEnabledException;
 import com.io.gift.mapper.request.GiftCertificateCreateMapper;
 import com.io.gift.mapper.dto.GiftCertificateMapper;
 import com.io.gift.mapper.dto.TagMapper;
-import com.io.gift.model.request.GiftCertificateUpdateMapper;
+import com.io.gift.mapper.request.GiftCertificateUpdateMapper;
+import com.io.gift.model.request.GiftCertificateUpdateRequest;
 import com.io.gift.model.dto.GiftCertificateDto;
 import com.io.gift.model.entity.GiftCertificate;
 import com.io.gift.model.entity.Tag;
@@ -56,7 +57,7 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
     }
 
     @Override
-    public GiftCertificateDto updateOne(GiftCertificateUpdateMapper request, Long id) {
+    public GiftCertificateDto updateOne(GiftCertificateUpdateRequest request, Long id) {
         if (!giftCertificateRepository.existsById(id)) {
             throw new EntityNotFoundException("Gift Certificate by id = " + " not found");
         }
@@ -65,7 +66,7 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
     }
 
     @Override
-    public GiftCertificateDto deleteOneById(Long id) {
+    public GiftCertificateDto deleteOne(Long id) {
         return giftCertificateMapper.toDto(giftCertificateRepository.findById(id).map(n -> {
             if (!n.getIsEnabled()) {
                 throw new GiftCertificateIsNotEnabledException();
@@ -76,10 +77,10 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
     }
 
     @Override
-    public GiftCertificateDto deleteOneByName(String name) {
+    public GiftCertificateDto deleteOne(String name) {
         return giftCertificateMapper.toDto(giftCertificateRepository.findByName(name).map(n -> {
             if (!n.getIsEnabled()) {
-                throw new GiftCertificateIsNotEnabledException()Exception();
+                throw new GiftCertificateIsNotEnabledException();
             }
             n.setIsEnabled(false);
             return giftCertificateRepository.save(n);

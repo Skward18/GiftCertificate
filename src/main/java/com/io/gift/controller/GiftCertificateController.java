@@ -2,7 +2,7 @@ package com.io.gift.controller;
 
 import com.io.gift.model.dto.GiftCertificateDto;
 import com.io.gift.model.request.GiftCertificateCreateRequest;
-import com.io.gift.model.request.GiftCertificateUpdateMapper;
+import com.io.gift.model.request.GiftCertificateUpdateRequest;
 import com.io.gift.service.GiftCertificateService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,17 +28,17 @@ public class GiftCertificateController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<GiftCertificateDto> updateOne(@RequestBody GiftCertificateUpdateMapper request,
+    public ResponseEntity<GiftCertificateDto> updateOne(@RequestBody GiftCertificateUpdateRequest request,
                                                         @PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(giftCertificateService.updateOne(request, id));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<GiftCertificateDto> deleteOneById(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(giftCertificateService.deleteOneById(id));
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(giftCertificateService.deleteOne(id));
     }
     @DeleteMapping(params = {"name"})
     public ResponseEntity<GiftCertificateDto> deleteOneByName(@RequestBody String name) {
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(giftCertificateService.deleteOneByName(name));
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(giftCertificateService.deleteOne(name));
     }
-    }
+}

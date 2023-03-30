@@ -26,4 +26,14 @@ public class TagController {
     private List<TagDto> getAll(){
         return tagService.getAll();
     }
+
+    @DeleteMapping("/{id}")
+    private ResponseEntity<TagDto> deleteOne(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(tagService.deleteOne(id));
+    }
+
+    @DeleteMapping(params = "name")
+    private ResponseEntity<TagDto> deleteOne(@RequestBody String name){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(tagService.deleteOne(name));
+    }
 }

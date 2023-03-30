@@ -6,8 +6,7 @@ import com.io.gift.model.entity.GiftCertificate;
 import com.io.gift.model.request.GiftCertificateCreateRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants.ComponentModel;
-import org.mapstruct.ReportingPolicy;
+
 
 @Mapper(config = MapstructAutoWire.class)
 public interface GiftCertificateCreateMapper extends EntityMapper<GiftCertificate, GiftCertificateCreateRequest> {
