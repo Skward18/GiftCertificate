@@ -3,7 +3,6 @@ package com.io.gift.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import java.util.Objects;
 

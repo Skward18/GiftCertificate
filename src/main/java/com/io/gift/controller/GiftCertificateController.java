@@ -34,11 +34,13 @@ public class GiftCertificateController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<GiftCertificateDto> deleteOneById(@PathVariable Long id){
+    public ResponseEntity<GiftCertificateDto> deleteOne(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(giftCertificateService.deleteOne(id));
     }
     @DeleteMapping(params = {"name"})
-    public ResponseEntity<GiftCertificateDto> deleteOneByName(@RequestBody String name) {
+    public ResponseEntity<GiftCertificateDto> deleteOne(@RequestBody String name) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(giftCertificateService.deleteOne(name));
     }
+
+
 }

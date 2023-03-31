@@ -2,6 +2,7 @@ package com.io.gift.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.io.gift.model.entity.GiftCertificate;
+import com.io.gift.model.request.RequestedTagStatus;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

@@ -8,6 +8,5 @@ import com.io.gift.model.entity.Tag;
 import org.mapstruct.Mapper;
 
 @Mapper(config = MapstructAutoWire.class)
-
 public interface TagMapper extends DtoMapper<TagDto, Tag>, EntityMapper<Tag, TagDto> {
 }
