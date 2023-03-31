@@ -33,7 +33,7 @@ public class GiftCertificate extends BaseEntityAudit<Long> {
             inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
     private List<Tag> tags;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
     Boolean isEnabled;
 
     @PrePersist
